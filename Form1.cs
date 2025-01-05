@@ -16,7 +16,7 @@ namespace EM3
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(14, 14);
+            dataGridView1.Location = new Point(155, 12);
             dataGridView1.Margin = new Padding(4, 3, 4, 3);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(869, 219);

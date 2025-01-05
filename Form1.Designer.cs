@@ -30,6 +30,7 @@ namespace EM3
                     DataTable dataTable = new DataTable();
                     adapter.Fill(dataTable);
                     dataGridView1.DataSource = dataTable; // Asegúrate de que dataGridView1 es el nombre de tu DataGridView
+                    AdjustDataGridViewSize();
                 }
             }
         }
@@ -75,6 +76,12 @@ namespace EM3
                     dataGridView1.DataSource = dataTable;
                 }
             }
+        }
+
+        private void AdjustDataGridViewSize()
+        {
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
         private string GetDebuggerDisplay()
         {
