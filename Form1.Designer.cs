@@ -7,33 +7,13 @@ using System.Windows.Forms;
 namespace EM3
 {
     [DebuggerDisplay($"{{{nameof(GetDebuggerDisplay)}(),nq}}")]
-    public partial class MainForm : Form
+    public partial class Form1 : Form
     {
-        // Constructor de la clase MainForm
-        public MainForm()
-        {
-            InitializeComponent();
-            LoadData();
-            InitializeMenu();
-        }
-
-        private void LoadData()
-        {
-            string connectionString = "Data Source=Millennium.db;Version=3;";
-            string query = "SELECT * FROM personajes"; // Cambia "instituciones" por la tabla que desees mostrar
-
-            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
-            {
-                connection.Open();
-                using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(query, connection))
-                {
-                    DataTable dataTable = new DataTable();
-                    adapter.Fill(dataTable);
-                    dataGridView1.DataSource = dataTable; // Asegúrate de que dataGridView1 es el nombre de tu DataGridView
-                    AdjustDataGridViewSize();
-                }
-            }
-        }
+        private DataGridView dataGridView1;
+        private Button btnCreate;
+        private Button btnRead;
+        private Button btnUpdate;
+        private Button btnDelete;
 
         private void InitializeMenu()
         {
@@ -62,30 +42,33 @@ namespace EM3
             this.Controls.Add(menuStrip);
         }
 
-        private void OpenTable(string tableName)
-        {
-            string connectionString = "Data Source=Millennium.db;Version=3;";
-            string query = $"SELECT * FROM {tableName}";
-            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
-            {
-                connection.Open();
-                using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(query, connection))
-                {
-                    DataTable dataTable = new DataTable();
-                    adapter.Fill(dataTable);
-                    dataGridView1.DataSource = dataTable;
-                }
-            }
-        }
-
         private void AdjustDataGridViewSize()
         {
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
-        private string GetDebuggerDisplay()
+
+        private void InitializeCrudButtons()
         {
-            return ToString();
+            // Crear botones CRUD
+            btnCreate = new Button { Text = "Crear", Left = 10, Top = 100, Width = 80 };
+            btnRead = new Button { Text = "Leer", Left = 100, Top = 100, Width = 80 };
+            btnUpdate = new Button { Text = "Actualizar", Left = 190, Top = 100, Width = 80 };
+            btnDelete = new Button { Text = "Eliminar", Left = 280, Top = 100, Width = 80 };
+
+            // Agregar eventos a los botones
+            btnCreate.Click += BtnCreate_Click;
+            btnRead.Click += BtnRead_Click;
+            btnUpdate.Click += BtnUpdate_Click;
+            btnDelete.Click += BtnDelete_Click;
+
+            // Agregar botones al formulario
+            this.Controls.Add(btnCreate);
+            this.Controls.Add(btnRead);
+            this.Controls.Add(btnUpdate);
+            this.Controls.Add(btnDelete);
         }
+
+        private DataGridView dataGridView2;
     }
 }
