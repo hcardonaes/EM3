@@ -202,14 +202,14 @@ namespace EM3
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 297);
+            dataGridView1.Location = new Point(251, 12);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(1064, 266);
+            dataGridView1.Size = new Size(825, 266);
             dataGridView1.TabIndex = 0;
             // 
             // Form1
             // 
-            ClientSize = new Size(1088, 641);
+            ClientSize = new Size(1088, 505);
             Controls.Add(dataGridView1);
             Name = "Form1";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

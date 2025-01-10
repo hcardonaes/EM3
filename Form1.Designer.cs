@@ -51,10 +51,10 @@ namespace EM3
         private void InitializeCrudButtons()
         {
             // Crear botones CRUD
-            btnCreate = new Button { Text = "Crear", Left = 10, Top = 100, Width = 80 };
-            btnRead = new Button { Text = "Leer", Left = 100, Top = 100, Width = 80 };
-            btnUpdate = new Button { Text = "Actualizar", Left = 190, Top = 100, Width = 80 };
-            btnDelete = new Button { Text = "Eliminar", Left = 280, Top = 100, Width = 80 };
+            btnCreate = new Button { Text = "Crear", Left = 300, Top = 300, Width = 80 };
+            btnRead = new Button { Text = "Leer", Left = 400, Top = 300, Width = 80 };
+            btnUpdate = new Button { Text = "Actualizar", Left = 500, Top = 300, Width = 80 };
+            btnDelete = new Button { Text = "Eliminar", Left = 600, Top = 300, Width = 80 };
 
             // Agregar eventos a los botones
             btnCreate.Click += BtnCreate_Click;
